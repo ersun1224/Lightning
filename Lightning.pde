@@ -1,31 +1,39 @@
-int startX = 150;
+int startX = 250; //Lightning Variables
 int startY = 0;
-int endX = 150;
+int endX = 250;
 int endY = 0;
 
 
 void setup()
 {
-	background(0);
-	size(300,500);
+	background(10);
+	size(500,500);
 	strokeWeight(3);
-	frameRate(10);
 }
 void draw()
 {
-	//while(startY < 300) {
-		startX = endX;
-		startY = endY;
-		endY = endY + (int)(Math.random()*20) + 10;
-		startY = startY + (int)(Math.random()*10);
-	//}
-stroke((int)(Math.random()*255), (int)(Math.random()*255), (int)(Math.random()*255));
-line(startX,startY,endX,endY);
+	stroke((int)(Math.random()*255), (int)(Math.random()*255), (int)(Math.random()*255)); //Lightning color
 
+	line(startX,startY,endX,endY); //Drawing the Lightning
+	startX = endX; 				   //Making sure the lightning connects
+	startY = endY;
+	endX = endX + (int)(Math.random()*40) - 19; //Randomly drawing the lightning
+	endY = startY + (int)(Math.random()*20);
+ /*
+	if(endY == 500)
+		background(50,0);
+	else {
+		background(10,0);
+	}
+*/
 
 }
 void mousePressed()
 {
-
+	background(10); // reset
+	startX = 250;
+	startY = 0;
+	endX = 250;
+	endY = 0;
 }
 
