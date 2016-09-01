@@ -6,13 +6,23 @@ int endY = 0;
 
 void setup()
 {
-	background(10);
 	size(500,500);
+	background(0);
 	strokeWeight(3);
 }
 void draw()
 {
-	background(0,0,0,0);
+	noStroke();
+		if (endY > 480 && endY < 600)
+	{
+		fill(250,250,250);
+	} else {
+		fill(63,63,63,1);
+		delay(1000);
+		fill(63,63,63,);
+	}
+	rect(0,0,500,500);
+	
 	stroke((int)(Math.random()*255), (int)(Math.random()*255), (int)(Math.random()*255)); //lightning color
 
 	line(startX,startY,endX,endY); //Drawing the lightning
@@ -21,12 +31,11 @@ void draw()
 	endX = endX + (int)(Math.random()*40) - 19; //Randomly drawing the lightning
 	endY = startY + (int)(Math.random()*20);
 
-	//while
 
 }
 void mousePressed()
 {
-	background(10); // reset
+	background(0); // reset
 	startX = 250;
 	startY = 0;
 	endX = 250;
