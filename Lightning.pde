@@ -3,6 +3,7 @@ int startY = 0;
 int endX = 250;
 int endY = 0;
 
+int opac1 = 0;
 int xFollow = 0;
 
 void setup()
@@ -14,12 +15,15 @@ void setup()
 void draw()
 {
 	noStroke();
+	fill(63,63,63,4);
+	rect(0,0,500,1000);
 	if (endY > 980 && endY < 1050)
 	{
-		fill(250,250,250);
+		opac1 = 100;
 	} else {
-		fill(63,63,63,10);
+		opac1 = 0;
 	}
+	fill(250,250,250,opac1);
 	rect(0,0,500,1000);
 
 	if (mouseX > 250)
@@ -37,7 +41,7 @@ void draw()
 	startX = endX; 				   //Making sure the lightning connects
 	startY = endY;
 	endX = endX + (int)(Math.random()*40) - 19 + xFollow; //Randomly drawing the lightning
-	endY = startY + (int)(Math.random()*20);
+	endY = startY + (int)(Math.random()*18);
 
 	if(endY > 1050) {
 		startX = 250;
